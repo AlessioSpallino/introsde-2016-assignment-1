@@ -1,0 +1,250 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<title>Login</title>
+<style>
+body {
+  margin:0px 0px; padding:0px;
+  text-align:center; 
+}
+
+#page {
+  margin:0px auto;
+}
+
+#container {
+  margin:0px auto;
+  width:390px;
+  min-height:200px;
+ /* border:2px solid #000000;*/
+}
+
+#header {
+  height:60px;
+}
+
+#header p {
+  margin-top:0px;
+  margin-bottom:0px;
+  font-size:28px;
+  font-family:times New Roman;
+  color:#999999;
+  padding-top:22px;
+  text-align :right;
+}
+
+#contest img{
+  float:left;
+}
+
+#langcanghe {
+  height:25px;
+  color:#FFFFFF;
+  background-color: #FF9900;
+  text-align:right;
+  padding-right:5px;
+}
+
+#langcanghe p{
+  margin-top:0px;
+  margin-bottom:0px;
+  padding-top: 4px;
+}
+
+#langcanghe a {
+  color:#FFFFFF;
+  text-decoration:none;
+  font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+}
+
+#content {
+  font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  border:1px solid #FF9900;
+  border-top:0px solid #FF9900;
+  border-bottom:0px solid #FF9900;
+  min-height:185px;
+  padding-top:35px;
+}
+
+#username {
+  padding-bottom:20px;
+ }
+ 
+label.password, label.username {
+  width:70px;
+  text-align:left;
+}
+
+#password {
+  padding-bottom:20px;
+}
+
+#radio {
+  padding-bottom:20px;
+  padding-left: 40px;
+}
+
+#sub {
+  padding-bottom:20px;
+}
+
+#footer, #footer a {
+  color :#999999;
+  font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+  font-size: 11px;
+}
+
+#footer {
+  border:1px solid #FF9900;
+  border-top:0px solid #FF9900;
+}
+
+#footer p {
+  margin-top:0px;
+}
+
+#footer a {
+  text-decoration:none;
+}
+
+.unitncolor {
+  color:#FF9900;
+  font-style:italic;
+}
+
+.hide {
+  display:none;
+}
+
+form{
+  margin:0px;
+}
+
+
+#langcanghe {
+  background-color: #336699;
+}
+
+#content {
+  border-color: #336699;	
+}	
+
+#footer {
+  border-color: #336699;
+}
+</style>
+</head>
+
+<body onload="loadPage();">
+<div id="page">
+ 
+   <div id="container">
+     <div id="header">
+	   <div id="contest"><img class="it" height="60px" width="165" alt="Logo unitn"src="https://www3.unitn.it/network/cp-auth/wism-login/images/logo_login.jpg" /><img class="en hide" height="60px" width="165" alt="Logo unitn"src="images/logo_login_en.jpg" /><p>network</p></div>
+	 </div>
+	 <div id="langcanghe"><p class="textitaliano" ></p></div>	
+	 <div id="content" align="center">
+	 
+	
+	
+<script>
+
+function loadPage() {
+	document.login.user.value = "";
+
+    if (document.login.user.value == '')
+	    document.login.user.focus();
+
+	var errMsg = "";
+	var respStatus = "Success";
+	var respMsg = "";
+	if (respStatus == "Error") {
+		if (errMsg != "")
+			errMsg += "<br><br>";
+		errMsg += "<li>"+respMsg;
+	} else if (respStatus == "Challenge") {
+		var divUserName = document.getElementById("dUserName");
+		divUserName.style.display = "none";
+		var passwdTitle = document.getElementById("passwdTitle");
+		passwdTitle.innerHTML = "";
+		
+		var divInputStr = document.getElementById("dInputStr");
+		divInputStr.style.display = "block";
+		divInputStr.innerHTML = respMsg;
+	}
+	// respStatus can also be "" when we come to this page the first time
+
+	if (errMsg != "") {
+		var divObj = document.getElementById("dError");
+		
+		divObj.style.display = "block";
+		divObj.innerHTML = errMsg;
+	}
+}
+
+function submitClicked() {
+	var thisForm = document.getElementById("login_form");
+	// hide the error div, just incase it was showing.
+	var divObj = document.getElementById("dError");
+	divObj.style.display = "none";
+	divObj.innerHTML = "";
+
+	var divTaLogin = document.getElementById("taLogin");
+	divTaLogin.style.display = "none";
+
+    thisForm.inputStr.value = "";
+    thisForm.escapeUser.value = thisForm.user.value.replace(/\\/g, "\\\\");
+    
+}
+
+function onClickHandler() {
+	submitClicked();
+}
+
+</script>
+
+	<form name="login" id="login_form" method="post">
+        <input type='hidden' name="inputStr" value="">
+        <input type='hidden' name="escapeUser" value="">        
+    
+        <div id="taLogin">
+             <table>
+                  <tr id="dUserName">
+                      <td>Name</td>
+	                  <td><input type="text" id="user" name="user" size="19"></td>
+	              </tr>
+	              <tr>
+                      <td><span id="passwdTitle">Password</span></td>
+	                  <td>
+                          <div id="dInputStr" style="display:none"><br></div>
+						  <input type="password" maxlength="40" size="19" name="passwd">
+	                  </td>
+	              </tr>
+              	  <tr>
+                  	  <td>&nbsp;</td>
+	                  <td><input class="buttonFixed" type="submit" id="submit"
+                          name="ok" value="Login" onClick="submitClicked()"></td>
+	              </tr>
+             </table>
+         </div>
+	</form>
+    <div id="dError" class="msg" style="display:none"></div>
+
+
+	
+	<p>If you have a University account, please enter your credentials using the form: username@<b>unitn.it</b>.</p>
+	<p>If you have a Guest or Visiting account, please enter your credentials using the form: username@<b>visiting.unitn.it</b></p>
+	 </div>
+	 <div id="footer">
+	  <p><a href="http://www.unitn.it/ateneo/2077/informative-sul-trattamento-dei-dati-personali" target="_blank">Privacy</a> | <a href="http://icts.unitn.it/guida-anti-phishing" target="_blank">Guida anti-phishing</a> | <a href="http://icts.unitn.it/captive-portal-da-rete-cablata" target="_blank">Help&info</a></p>
+
+	 </div>
+   </div>
+ </div>
+
+</body>
+</html>

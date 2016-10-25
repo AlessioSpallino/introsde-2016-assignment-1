@@ -15,11 +15,11 @@ Inside of the 'src' folder there are 4 java files:
 		- displayHealthProfile (function that accepts id as parameter and prints the HealthProfile)
 
 - Marshalling.java
-	java application that does the marshalling of 3 person into XML
+	- java application that does the marshalling of 3 person into XML
 - Unmarshalling.java
-	java application that does the un-marshalling from XML
+	- java application that does the un-marshalling from XML
 - MarshallingJSON.java
-	java application that marshal person created with java to JSON
+	- java application that marshal person created with java to JSON
 
 ### INSTALLATION AND RUN CODE
 

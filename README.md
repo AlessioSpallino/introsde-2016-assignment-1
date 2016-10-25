@@ -1,8 +1,8 @@
-ASSIGNMENT 1 - Alessio Spallino
+# ASSIGNMENT 1 - Alessio Spallino
 
 In this project you can find my solution about the Assignment number 1.
 
-TASK REQUIRED
+### TASK REQUIRED
 
 All the required task are implemented.
 Inside of the 'src' folder there are 4 java files:
@@ -21,16 +21,16 @@ Inside of the 'src' folder there are 4 java files:
 - MarshallingJSON.java
 	java application that marshal person created with java to JSON
 
-INSTALLATION AND RUN CODE
+### INSTALLATION AND RUN CODE
 
 - Open command line
 - 'cd' to the project directory
 - type: ant execute.evaluation
 - this command will install all the necessary thing and it will run all the tasks in this order:
-	Lab03-exercise2: instruction 2 based on Lab 3
-	Lab03-exercise3: runs instruction 3 based on Lab 3 
-	Lab03-exercise4: runs instruction 4 based on Lab 3 
-	Lab04-exercise2.1: runs instruction 2 based on Lab 4 
-	Lab04-exercise2.2: runs instruction 2 based on Lab 4 
-	Lab04-exercise3: runs instruction 3 based on Lab 4 
+	- Lab03-exercise2: instruction 2 based on Lab 3
+	- Lab03-exercise3: runs instruction 3 based on Lab 3 
+	- Lab03-exercise4: runs instruction 4 based on Lab 3 
+	- Lab04-exercise2.1: runs instruction 2 based on Lab 4 
+	- Lab04-exercise2.2: runs instruction 2 based on Lab 4 
+	- Lab04-exercise3: runs instruction 3 based on Lab 4 
 
